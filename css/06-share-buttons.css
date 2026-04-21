@@ -1,17 +1,17 @@
 /* ================================================================
-   FILE: 06-share-buttons.css
+   FILE: 06-share-buttons.css  (v1.1 — fixed class names)
    NAMA: Share Buttons - pentradr.com
    FUNGSI: Tombol berbagi artikel ke X (Twitter) dan LinkedIn
            tanpa memerlukan script eksternal.
    DIGUNAKAN DI: Post footer (semua artikel blog)
-   CDN: https://cdn.jsdelivr.net/gh/USERNAME/pentradr-css@latest/css/06-share-buttons.css
+   CDN: https://cdn.jsdelivr.net/gh/pecoding/pentradr-css@1.1/css/06-share-buttons.css
    ================================================================ */
 
 .pntrdr-share-wrap {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 14px 0 8px;
+  margin: 14px 0 8px 0;
   flex-wrap: wrap;
 }
 
@@ -32,26 +32,30 @@
   font-size: 13px;
   font-weight: 700;
   text-decoration: none !important;
-  transition: opacity 0.2s, transform 0.2s;
-  color: #fff !important;
+  transition: opacity 0.2s, transform 0.15s;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .pntrdr-share-btn:hover {
-  opacity: 0.88;
-  transform: translateY(-2px);
+  opacity: 0.82;
+  transform: translateY(-1px);
   text-decoration: none !important;
 }
 
-.pntrdr-share-btn svg {
+.pntrdr-share-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
 }
 
-/* X (Twitter) */
-.pntrdr-share-btn--x {
-  background: #000000;
-}
+/* Warna per platform */
+.pntrdr-share-x  { background: #000; color: #fff !important; }
+.pntrdr-share-li { background: #0a66c2; color: #fff !important; }
 
-/* LinkedIn */
-.pntrdr-share-btn--li {
-  background: #0a66c2;
+@media (max-width: 480px) {
+  .pntrdr-share-btn { padding: 6px 12px 6px 10px; font-size: 12px; }
 }
