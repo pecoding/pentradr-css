@@ -532,3 +532,143 @@
     padding: 28px 18px;
   }
 }
+
+/* ====================================================
+   TABEL ARTIKEL OPINI
+   Responsive, rapi di mobile & desktop
+   ==================================================== */
+
+.op-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--op-radius);
+  box-shadow: var(--op-shadow);
+  margin-bottom: 40px;
+  border: 1px solid var(--op-border);
+}
+
+.op-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--op-card-bg);
+  font-size: 0.9rem;
+  min-width: 320px;
+}
+
+/* Header row */
+.op-table thead tr {
+  background: var(--op-primary);
+  color: #fff;
+}
+
+.op-table th {
+  padding: 13px 14px;
+  font-family: 'Lora', Georgia, serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.op-th-no  { width: 40px; text-align: center; }
+.op-th-kat { width: 130px; }
+.op-th-art { }
+
+/* Body rows */
+.op-tr {
+  border-bottom: 1px solid var(--op-border);
+  transition: background 0.17s;
+}
+
+.op-tr:last-child {
+  border-bottom: none;
+}
+
+.op-tr:nth-child(even) {
+  background: #f4f7fb;
+}
+
+.op-tr:hover {
+  background: #e8f0fb;
+}
+
+.op-td-no {
+  padding: 13px 8px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--op-muted);
+  letter-spacing: 0.5px;
+}
+
+.op-td-kat {
+  padding: 13px 10px 13px 14px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.op-td-art {
+  padding: 13px 16px 13px 10px;
+  vertical-align: middle;
+  line-height: 1.45;
+}
+
+.op-td-art a {
+  color: var(--op-primary);
+  font-weight: 600;
+  text-decoration: none;
+  display: block;
+}
+
+.op-td-art a:hover {
+  color: var(--op-hover);
+  text-decoration: underline;
+}
+
+/* Kategori badge/pill */
+.op-kat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.op-kat-asuransi  { background: #eee5fb; color: #6b35bd; }
+.op-kat-investasi { background: #e3f5e8; color: #1a7a3a; }
+.op-kat-saham     { background: #e3f5ec; color: #157050; }
+.op-kat-ekonomi   { background: #fef5e2; color: #9a6800; }
+.op-kat-mindset   { background: #fee8e8; color: #b93030; }
+
+/* Mobile: sembunyikan kolom # agar lebih compact */
+@media (max-width: 480px) {
+  .op-th-no,
+  .op-td-no {
+    display: none;
+  }
+
+  .op-th-kat,
+  .op-td-kat {
+    width: 90px;
+    min-width: 90px;
+    padding-left: 10px;
+  }
+
+  .op-kat {
+    font-size: 0.66rem;
+    padding: 3px 7px;
+  }
+
+  .op-td-art {
+    padding: 11px 12px 11px 8px;
+  }
+
+  .op-td-art a {
+    font-size: 0.86rem;
+  }
+}
