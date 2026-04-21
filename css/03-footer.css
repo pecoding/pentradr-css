@@ -1,0 +1,232 @@
+/* ================================================================
+   FILE: 03-footer.css
+   NAMA: Footer - pentradr.com
+   FUNGSI: Custom footer (desktop & mobile) dengan brand, nav, 
+           social icons, dan copyright.
+           Meliputi: pntrdr-footer (desktop), pmf (mobile pages)
+   DIGUNAKAN DI: Semua halaman (desktop & mobile)
+   CDN: https://cdn.jsdelivr.net/gh/USERNAME/pentradr-css@latest/css/03-footer.css
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   DESKTOP FOOTER: .pntrdr-footer
+   ---------------------------------------------------------------- */
+.pntrdr-footer {
+  background: #0d1b2a;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+}
+
+.pntrdr-footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 44px 48px 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.pntrdr-footer-brand { flex: 1 1 200px; min-width: 160px; }
+.pntrdr-footer-logo { display: block; margin-bottom: 12px; }
+.pntrdr-footer-logo img { height: 58px; width: auto; border-radius: 8px; }
+
+.pntrdr-footer-tagline {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 210px;
+}
+
+.pntrdr-footer-nav { flex: 1 1 160px; }
+
+.pntrdr-footer-nav h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #f0a500;
+  margin: 0 0 14px;
+  padding: 0;
+  border: none;
+}
+
+.pntrdr-footer-nav ul { list-style: none; margin: 0; padding: 0; }
+.pntrdr-footer-nav ul li { margin-bottom: 9px; padding: 0; border: none; }
+
+.pntrdr-footer-nav ul li a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.pntrdr-footer-nav ul li a:hover { color: #f0a500; text-decoration: none; }
+
+.pntrdr-footer-social { flex: 1 1 180px; }
+
+.pntrdr-footer-social h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #f0a500;
+  margin: 0 0 14px;
+  padding: 0;
+  border: none;
+}
+
+.pntrdr-social-icons { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.pntrdr-soc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.pntrdr-soc:hover { transform: translateY(-3px); opacity: 0.85; text-decoration: none; }
+.pntrdr-soc img { width: 42px; height: 42px; border-radius: 50%; display: block; }
+
+.pntrdr-footer-bottom {
+  text-align: center;
+  padding: 18px 24px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  background: rgba(0,0,0,0.2);
+}
+
+.pntrdr-footer-bottom a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  margin: 0 8px;
+  transition: color 0.2s;
+}
+
+.pntrdr-footer-bottom a:hover { color: #f0a500; }
+
+@media (max-width: 640px) {
+  .pntrdr-footer-top { padding: 32px 20px 24px; gap: 24px; }
+  .pntrdr-footer-brand,
+  .pntrdr-footer-nav,
+  .pntrdr-footer-social { flex: 1 1 100%; }
+  .pntrdr-footer-tagline { max-width: 100%; }
+  .pntrdr-soc { width: 46px; height: 46px; }
+  .pntrdr-soc img { width: 46px; height: 46px; }
+}
+
+/* ----------------------------------------------------------------
+   MOBILE FOOTER OVERRIDE (blog posts)
+   ---------------------------------------------------------------- */
+body.mobile .footer-outer,
+body.mobile .footer-fauxborder-left,
+body.mobile .footer-inner,
+body.mobile .region-inner.footer-inner { display: block !important; visibility: visible !important; }
+body.mobile .pntrdr-footer { display: block !important; }
+body.mobile .pntrdr-footer-top { display: flex !important; flex-wrap: wrap !important; padding: 24px 16px 16px !important; gap: 20px !important; }
+body.mobile .pntrdr-footer-brand,
+body.mobile .pntrdr-footer-nav,
+body.mobile .pntrdr-footer-social { flex: 1 1 100% !important; }
+body.mobile .pntrdr-footer-bottom { text-align: center !important; font-size: 11px !important; padding: 14px 16px !important; }
+
+/* ----------------------------------------------------------------
+   PMF: Page Mobile Footer (khusus Static Pages mobile)
+   ---------------------------------------------------------------- */
+.pmf-wrap {
+  background: #0d1b2a;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin-top: 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.pmf-top { padding: 24px 16px 16px; }
+
+.pmf-brand {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.pmf-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none !important;
+  margin-bottom: 10px;
+}
+
+.pmf-logo { width: 42px; height: 42px; border-radius: 8px; flex-shrink: 0; }
+.pmf-logo-text { font-size: 18px; font-weight: 800; color: #f0a500 !important; letter-spacing: .5px; }
+.pmf-tagline { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; margin: 0; }
+
+.pmf-nav-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.pmf-nav { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+
+.pmf-nav-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #f0a500;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 4px;
+}
+
+.pmf-nav a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65) !important;
+  text-decoration: none !important;
+  line-height: 1.4;
+  transition: color 0.2s;
+  display: block;
+}
+
+.pmf-nav a:hover { color: #fff !important; }
+
+.pmf-social { padding-bottom: 4px; }
+.pmf-social-row { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+
+.pmf-soc {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.pmf-soc:hover { background: rgba(240,165,0,0.3); }
+.pmf-soc svg { width: 18px; height: 18px; }
+
+.pmf-bottom {
+  background: rgba(0,0,0,0.25);
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.8;
+}
+
+.pmf-bottom a { color: rgba(255,255,255,0.45) !important; text-decoration: none !important; margin: 0 2px; }
+.pmf-bottom a:hover { color: #f0a500 !important; }

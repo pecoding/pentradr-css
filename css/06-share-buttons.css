@@ -1,0 +1,57 @@
+/* ================================================================
+   FILE: 06-share-buttons.css
+   NAMA: Share Buttons - pentradr.com
+   FUNGSI: Tombol berbagi artikel ke X (Twitter) dan LinkedIn
+           tanpa memerlukan script eksternal.
+   DIGUNAKAN DI: Post footer (semua artikel blog)
+   CDN: https://cdn.jsdelivr.net/gh/USERNAME/pentradr-css@latest/css/06-share-buttons.css
+   ================================================================ */
+
+.pntrdr-share-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 8px;
+  flex-wrap: wrap;
+}
+
+.pntrdr-share-label {
+  font-size: 12px;
+  color: #7d7d7d;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.pntrdr-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: opacity 0.2s, transform 0.2s;
+  color: #fff !important;
+}
+
+.pntrdr-share-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+.pntrdr-share-btn svg {
+  flex-shrink: 0;
+}
+
+/* X (Twitter) */
+.pntrdr-share-btn--x {
+  background: #000000;
+}
+
+/* LinkedIn */
+.pntrdr-share-btn--li {
+  background: #0a66c2;
+}

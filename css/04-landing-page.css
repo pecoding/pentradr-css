@@ -1,0 +1,153 @@
+/* ================================================================
+   FILE: 04-landing-page.css
+   NAMA: Landing Page - pentradr.com
+   FUNGSI: CSS khusus untuk halaman utama (homepage overlay)
+           yang menutupi seluruh layar dengan desain modern.
+           Hanya aktif saat data:blog.url == data:blog.homepageUrl
+   DIGUNAKAN DI: Homepage saja (via b:if di template)
+   CDN: https://cdn.jsdelivr.net/gh/USERNAME/pentradr-css@latest/css/04-landing-page.css
+   
+   CATATAN: Di template, tautkan CSS ini di dalam:
+   <b:if cond='data:blog.url == data:blog.homepageUrl'>
+     <link rel='stylesheet' href='CDN_URL/04-landing-page.css'/>
+   </b:if>
+   ================================================================ */
+
+body > * { visibility: hidden !important; }
+
+#landing-overlay {
+  visibility: visible !important;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow-y: auto;
+  z-index: 99999;
+  background: #0d1b2a;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* === NAVBAR === */
+.lp-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  background: rgba(13,27,42,0.95);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.lp-nav .logo { font-size: 24px; font-weight: 800; color: #f0a500; text-decoration: none; letter-spacing: 1px; }
+.lp-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 30px; }
+.lp-nav ul a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.lp-nav ul a:hover { color: #f0a500; }
+
+/* === HERO === */
+.lp-hero {
+  text-align: center;
+  padding: 100px 40px 80px;
+  background: linear-gradient(160deg, #0d1b2a 0%, #1a3a5c 60%, #0d1b2a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.lp-hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(240,165,0,0.12), transparent 70%);
+  top: -100px; left: 50%; transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.lp-badge {
+  display: inline-block;
+  background: rgba(240,165,0,0.15); color: #f0a500;
+  border: 1px solid rgba(240,165,0,0.4);
+  padding: 6px 18px; border-radius: 20px;
+  font-size: 14px; margin-bottom: 24px; letter-spacing: 1px;
+}
+
+.lp-hero h1 { font-size: 52px; font-weight: 900; line-height: 1.15; margin: 0 0 20px; color: #fff; }
+.lp-hero h1 span { color: #f0a500; }
+.lp-hero p { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 580px; margin: 0 auto 40px; line-height: 1.7; }
+.lp-btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+.lp-btn { padding: 15px 36px; border-radius: 50px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.lp-btn-primary { background: #f0a500; color: #0d1b2a !important; }
+.lp-btn-primary:hover { background: #ffb830; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(240,165,0,0.4); }
+.lp-btn-secondary { background: transparent; color: #fff !important; border: 2px solid rgba(255,255,255,0.3); }
+.lp-btn-secondary:hover { border-color: #fff; transform: translateY(-2px); }
+
+/* === STATS === */
+.lp-stats {
+  display: flex; justify-content: center; gap: 60px;
+  padding: 40px; flex-wrap: wrap;
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.lp-stat { text-align: center; }
+.lp-stat .num { font-size: 32px; font-weight: 800; color: #f0a500; }
+.lp-stat .lbl { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+/* === SECTION & CARDS === */
+.lp-section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+.lp-section-title { text-align: center; margin-bottom: 50px; }
+.lp-section-title h2 { font-size: 34px; font-weight: 800; color: #fff; margin: 0 0 12px; }
+.lp-section-title p { color: rgba(255,255,255,0.5); font-size: 16px; }
+
+.lp-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; }
+
+.lp-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 32px;
+  transition: all 0.3s; text-decoration: none;
+  display: block; color: inherit;
+}
+
+.lp-card:hover { background: rgba(240,165,0,0.08); border-color: rgba(240,165,0,0.3); transform: translateY(-4px); }
+.lp-card .icon { font-size: 40px; margin-bottom: 16px; }
+.lp-card h3 { font-size: 20px; color: #fff; margin: 0 0 10px; }
+.lp-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; margin: 0; }
+.lp-card .arrow { color: #f0a500; margin-top: 16px; font-size: 20px; }
+
+/* === CTA WRAP === */
+.lp-cta-wrap {
+  background: linear-gradient(135deg, #1a3a5c, #0d1b2a);
+  border: 1px solid rgba(240,165,0,0.2);
+  border-radius: 20px; text-align: center;
+  padding: 70px 40px; margin: 0 40px 80px;
+}
+
+.lp-cta-wrap h2 { font-size: 36px; font-weight: 800; color: #fff; margin: 0 0 14px; }
+.lp-cta-wrap p { color: rgba(255,255,255,0.6); font-size: 16px; margin: 0 0 32px; }
+
+/* === FOOTER MINI === */
+.lp-footer {
+  text-align: center; padding: 30px 40px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.35); font-size: 13px;
+}
+
+.lp-footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 10px; }
+.lp-footer a:hover { color: #f0a500; }
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .lp-hero h1 { font-size: 32px; }
+  .lp-hero { padding: 60px 20px 50px; }
+  .lp-nav { padding: 16px 20px; }
+  .lp-nav ul { display: none; }
+  .lp-stats { gap: 30px; padding: 30px 20px; }
+  .lp-section { padding: 60px 20px; }
+  .lp-cta-wrap { margin: 0 20px 60px; padding: 50px 24px; }
+  .lp-cta-wrap h2 { font-size: 26px; }
+}

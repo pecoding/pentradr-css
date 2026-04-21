@@ -1,0 +1,253 @@
+/* ================================================================
+   FILE: 02-pnav-navbar.css
+   NAMA: PNAV - Page Navigation Bar - pentradr.com
+   FUNGSI: Sticky navbar khusus Static Pages (menggantikan header 
+           default Blogger). Includes: logo, links, search, 
+           hamburger mobile, dropdown menu.
+   DIGUNAKAN DI: Semua halaman Static Pages (b:if static_page)
+   CDN: https://cdn.jsdelivr.net/gh/USERNAME/pentradr-css@latest/css/02-pnav-navbar.css
+   ================================================================ */
+
+/* Sembunyikan elemen default header/tabs di Static Pages */
+body.static_page_enabled .header-outer,
+body.static_page_enabled .header-inner,
+body.static_page_enabled .tabs-outer,
+body.static_page_enabled .tabs-inner,
+body.static_page_enabled .tabs-cap-top,
+body.static_page_enabled .tabs-cap-bottom,
+body.static_page_enabled .header-cap-top,
+body.static_page_enabled .header-cap-bottom,
+body.static_page_enabled .header-fauxborder-left,
+body.static_page_enabled .header-fauxborder-right,
+body.static_page_enabled .tabs-fauxborder-left,
+body.static_page_enabled .tabs-fauxborder-right { display: none !important; }
+
+body.static_page_enabled .blog-pager,
+body.static_page_enabled #blog-pager,
+body.static_page_enabled .blog-feeds,
+body.static_page_enabled .feed-links,
+body.static_page_enabled .post-feeds { display: none !important; }
+
+/* === PNAV BAR === */
+.pnav-bar {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(13,27,42,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.pnav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.pnav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none !important;
+  flex-shrink: 0;
+}
+
+.pnav-logo-img { height: 34px; width: auto; border-radius: 6px; }
+
+.pnav-logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: #f0a500 !important;
+  letter-spacing: .5px;
+}
+
+.pnav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none !important;
+}
+
+.pnav-links li {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+}
+
+.pnav-links li a {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75) !important;
+  text-decoration: none !important;
+  border-radius: 6px;
+  transition: all 0.2s;
+  background: transparent !important;
+}
+
+.pnav-links li a:hover,
+.pnav-links li.pnav-active a {
+  color: #fff !important;
+  background: rgba(255,255,255,0.08) !important;
+}
+
+.pnav-links li.pnav-active a {
+  color: #f0a500 !important;
+  background: rgba(240,165,0,0.1) !important;
+}
+
+.pnav-search {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 0 12px;
+  gap: 7px;
+  height: 34px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.pnav-search:focus-within {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(240,165,0,0.5);
+}
+
+.pnav-search-icon { color: rgba(255,255,255,0.45); font-size: 13px; flex-shrink: 0; }
+
+.pnav-search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 13px;
+  width: 140px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.pnav-search input::placeholder { color: rgba(255,255,255,0.35); }
+.pnav-search button { display: none; }
+
+/* Hamburger */
+.pnav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: transparent;
+  border: none;
+  flex-shrink: 0;
+}
+
+.pnav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.pnav-hamburger.pnav-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.pnav-hamburger.pnav-open span:nth-child(2) { opacity: 0; }
+.pnav-hamburger.pnav-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile dropdown */
+.pnav-mobile-menu {
+  display: none;
+  background: #0d1b2a;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 12px 0;
+}
+
+.pnav-mobile-menu.pnav-open { display: block; }
+
+.pnav-mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 16px;
+  border: none !important;
+}
+
+.pnav-mobile-menu ul li {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+}
+
+.pnav-mobile-menu ul li a {
+  display: block;
+  padding: 11px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8) !important;
+  text-decoration: none !important;
+  border-radius: 8px;
+  transition: all 0.2s;
+  background: transparent !important;
+}
+
+.pnav-mobile-menu ul li a:hover { background: rgba(255,255,255,0.07) !important; color: #fff !important; }
+.pnav-mobile-menu ul li.pnav-active a { color: #f0a500 !important; }
+
+.pnav-mobile-search { padding: 10px 16px 4px; }
+
+.pnav-mobile-search form {
+  display: flex;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pnav-mobile-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.pnav-mobile-search input::placeholder { color: rgba(255,255,255,0.35); }
+
+.pnav-mobile-search button {
+  background: #f0a500;
+  border: none;
+  padding: 0 16px;
+  color: #0d1b2a;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .pnav-links { display: none; }
+  .pnav-search { display: none; }
+  .pnav-hamburger { display: flex; }
+  .pnav-inner { padding: 0 16px; height: 52px; }
+  .pnav-logo-text { font-size: 16px; }
+}
+
+@media (min-width: 761px) {
+  .pnav-mobile-menu { display: none !important; }
+}
