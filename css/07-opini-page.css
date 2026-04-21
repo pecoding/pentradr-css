@@ -575,22 +575,39 @@
 .op-th-kat { width: 130px; }
 .op-th-art { }
 
-/* Body rows */
+/* Body rows — striped gradient untuk pembeda antar baris */
 .op-tr {
-  border-bottom: 1px solid var(--op-border);
-  transition: background 0.17s;
+  border-bottom: 2px solid #fff;  /* garis putih tebal sebagai separator jelas */
+  transition: background 0.17s, box-shadow 0.17s;
+  position: relative;
 }
 
 .op-tr:last-child {
   border-bottom: none;
 }
 
+/* Baris ganjil: putih bersih */
+.op-tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+/* Baris genap: gradasi biru-abu sangat lembut tapi jelas beda */
 .op-tr:nth-child(even) {
-  background: #f4f7fb;
+  background: linear-gradient(90deg, #eef4fd 0%, #f5f8ff 60%, #edf2fb 100%);
+}
+
+/* Aksen garis kiri berwarna per baris genap agar tambah jelas */
+.op-tr:nth-child(even) .op-td-no {
+  border-left: 3px solid #c2d4f0;
+}
+
+.op-tr:nth-child(odd) .op-td-no {
+  border-left: 3px solid #e0e8f5;
 }
 
 .op-tr:hover {
-  background: #e8f0fb;
+  background: linear-gradient(90deg, #ddeeff 0%, #eaf3ff 100%);
+  box-shadow: inset 0 0 0 1px #b8d4f0;
 }
 
 .op-td-no {
@@ -650,6 +667,22 @@
   .op-th-no,
   .op-td-no {
     display: none;
+  }
+
+  /* Di mobile: border-left pindah ke td-kat karena td-no tersembunyi */
+  .op-tr:nth-child(even) .op-td-kat {
+    border-left: 4px solid #a8c8f0;
+  }
+
+  .op-tr:nth-child(odd) .op-td-kat {
+    border-left: 4px solid #d0dff5;
+  }
+
+  /* Tambah padding atas-bawah agar tiap baris lebih "bernapas" */
+  .op-td-kat,
+  .op-td-art {
+    padding-top: 14px;
+    padding-bottom: 14px;
   }
 
   .op-th-kat,
